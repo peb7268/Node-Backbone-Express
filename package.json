@@ -1,0 +1,27 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.4.4",
+    "jade": "*",
+    "stylus": "*",
+    "mongoose": "*",
+    "async": "0.2.6",
+    "underscore": "*"
+  },
+  "devDependencies": {
+    "nodemon": "~0.7.3",
+    "grunt-contrib-sass": "~0.5.0",
+    "grunt-contrib-watch": "0.3.1",
+    "grunt-cli": "0.1.6",
+    "charlatan": "0.1.4",
+    "grunt": "0.4.1",
+    "moment": "*",
+    "node-sass": "~0.7.0"
+  },
+  "scripts": {
+    "start": "nodemon app.js -w routes -w public/stylesheets -w app.js",
+    "mongo": "mongod --config /Users/peb7268/Desktop/dev/node/mongo_express/db/mongo.conf"
+  }
+}

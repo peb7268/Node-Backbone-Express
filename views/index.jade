@@ -1,0 +1,52 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}. This example site will demonstrate how to take your
+  | coding skills to the next level. This source code is annotated.
+
+  h2 Populating Backbone with Mongo Data.
+  #data Backbone data to go here..
+
+  script(type="text/template" id="product").
+    <% _.each(obj, function(elem){ %>
+        <div class="product">
+            <p>name: <%= elem.name %></p>
+            <p>description: <%= elem.description %></p>
+            <p>color: <%= elem.color %></p>
+            <p>model: <%= elem.model %></p>
+            <p>rating: <%= elem.rating %></p>
+            <p>reviews: <%= elem.reviews %></p>
+        </div>
+    <% }); %>
+
+
+  script.
+    ProductsView = Backbone.View.extend({
+      el: $("#data"),
+      template: _.template($("#product").html()),
+
+      initialize: function(){
+         that = this;
+         this.model.on("change", this.updateView);
+      },
+      render: function(data){
+          this.$el.html(this.template(this.model.attributes.products));
+          return this;
+      },
+      updateView: function(data){
+          that.render(data)
+      }
+    });
+    ProductsModel = Backbone.Model.extend({
+      urlRoot: '/products',
+
+      initialize: function(){
+        this.fetch();
+      }
+    });
+
+    $(document).ready(function(){
+        productsView = new ProductsView({ model: new ProductsModel });
+    });
+
