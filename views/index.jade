@@ -9,15 +9,19 @@ block content
   #data Backbone data to go here..
 
   script(type="text/template" id="product").
-    <% _.each(obj, function(elem){ %>
+    <div class="row">
+    <% _.each(obj, function(elem, idx){ %>
         <div class="product">
-            <p>name: <%= elem.name %></p>
-            <p>description: <%= elem.description %></p>
-            <p>color: <%= elem.color %></p>
-            <p>model: <%= elem.model %></p>
-            <p>rating: <%= elem.rating %></p>
-            <p>reviews: <%= elem.reviews %></p>
+            <p><strong>name:</strong> <%= elem.name %></p>
+            <p><strong>description:</strong> <%= elem.description %></p>
+            <p><strong>color:</strong> <%= elem.color %></p>
+            <p><strong>model:</strong> <%= elem.model %></p>
+            <p><strong>rating:</strong> <%= elem.rating %></p>
+            <p><strong>reviews:</strong> <%= elem.reviews %></p>
         </div>
+        <% if(idx > 0 && idx % 3 === 0 ) { %>
+         </div> <div class="row">
+        <% } %>
     <% }); %>
 
 

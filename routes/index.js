@@ -7,7 +7,7 @@ exports.build = function(app){
 
 	app.get('/products', function(req, res){
 		models.Product.find({}, 'name description price category rating reviews')
-			.limit(100)
+			.limit(99)
 			.exec(function(err, docs){
 				res.send({
 					count: docs.length,

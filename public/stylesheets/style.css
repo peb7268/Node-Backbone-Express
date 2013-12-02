@@ -4,3 +4,22 @@ body {
 
 a {
   color: #00b7ff; }
+
+.product {
+  color: #333333;
+  margin: 0px 20px 20px;
+  float: left;
+  width: 20%;
+  background: #c0d9e9;
+  border: 1px solid #708c9f;
+  padding: 2%; }
+  .product strong {
+    color: black;
+    font-size: 12pt; }
+  .product p {
+    font-size: 10pt;
+    margin: 0 0 7px;
+    width: 80%; }
+
+.row {
+  overflow: hidden; }
